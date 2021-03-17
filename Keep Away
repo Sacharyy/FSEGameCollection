@@ -1,0 +1,45 @@
+let x1 = 200;
+let y1 = 200;
+let x2 = 400;
+let y2 = 400;
+
+function setup() {
+  createCanvas(800, 600);
+}
+
+function draw() {
+  background('#f9cb9cff');
+  let menu = createDiv('Keep Away');
+  menu.style('font-size', '50px');
+  menu.style('color', '#ff9900ff');
+  menu.position(800/2, 100);
+  
+  dx = (x1 - x2) * .005;
+  dy = (y1 - y2) * .005;
+  
+  x2 += dx;
+  y2 += dy;
+  
+  fill('green')
+  stroke('black');
+  circle(x1,y1, width/20);
+  
+  fill('red')
+  stroke('black');
+  circle(x2,y2, width/20);
+}
+
+function keyPressed() {
+  if (keyCode === LEFT_ARROW) {
+    x1 = x1 - 10;
+  }
+  if (keyCode === RIGHT_ARROW) {
+    x1 = x1 + 10;
+  }
+  if (keyCode === UP_ARROW) {
+    y1 = y1 - 10;
+  }
+  if (keyCode === DOWN_ARROW) {
+    y1 = y1 + 10;
+  }
+}
