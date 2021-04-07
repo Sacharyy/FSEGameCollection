@@ -1,0 +1,418 @@
+//VARIABLES
+let button;
+var ready = -1;
+var endMsg = "";
+var c;
+var timerValue = 0;
+var timeIt;
+var mainMenu;
+
+function setup() {
+  createCanvas(800, 600);
+  
+  //TIMER
+   setInterval(timeIt, 1000);
+   timeIt();
+  
+  //BUTTON
+  button3 = createButton("Main Menu");
+  button3.style('background-color', 'yellow');
+  
+background(220);
+
+}
+function timeIt() {
+  if (timerValue >= 0) {
+    timerValue++;
+   
+  }
+  }
+  
+function draw() {
+
+//BUTTON
+button3.size(120,40)
+button3.position(670, 550); 
+button3.mousePressed(mainMenu)
+  
+var d = 220;
+  
+//RESET
+	if(mouseX > 0 && mouseX < 120 && mouseY > 300 && mouseY < 330) {
+    background(220)
+  }
+  
+ 
+  noStroke();
+  
+  // START BOX
+  textSize(20);
+  fill('green');
+  rect(0,height/2, 120, 30);
+  fill('white');
+  text("START", 20, 320);
+  
+  // END BOX
+  fill('red');
+  rect(730,height/2, 70, 30);
+  fill(255);
+  text("END", 745, 320);
+
+  
+  //WALLS
+  fill(0)
+  rect(150, 160, 100,300)
+  rect(0,0, 800,90)
+  rect(0,530,800, 70)
+  rect(240,300, 100, 30)
+  rect(370, 300, 100, 30)
+  rect(500, 300, 100, 30)
+  rect(630, 300, 80, 30)
+  rect(730, 80, 70,220 )
+  rect(730, 330, 70, 220)
+  
+ // BOTTOM L ELLIPSES
+  ellipse(20,450, 50,50)
+  ellipse(90,420, 50,50)
+  ellipse(140,360, 50,50)
+  ellipse(30,380, 50,50)
+  ellipse(90,490, 50,50)
+  ellipse(170,460, 50,50)
+  ellipse(170,540, 50,50)
+ 
+  
+ // TOP L ELLIPSES
+  ellipse(20,250, 50,50)
+  ellipse(70,190, 50,50)
+  ellipse(130,240, 50,50)
+  ellipse(145,160, 50,50)
+  ellipse(110,100, 50,50)
+  ellipse(20,100, 50,50)
+  
+  
+ // TOP R ELLIPSES
+  ellipse(450,110, 80,80)
+  ellipse(350,140, 80,80)
+  ellipse(250,180, 80,80)
+  ellipse(220,90, 80,80)  
+  ellipse(520,250, 80,80)
+  ellipse(380,250, 80,80)
+  ellipse(265,280, 80,80)
+  ellipse(650,110, 180,180)
+  ellipse(650,250, 80,80)
+  
+   // BOTTOM R ELLIPSES
+  ellipse(450,380, 80,80)
+  ellipse(255,420, 80,80)
+  ellipse(300,520, 80,80)
+  ellipse(360,440, 80,80)
+  ellipse(600,400, 80,80)
+  ellipse(480,470, 80,80)
+  ellipse(700,500, 180,180)
+  
+  //TITLE
+   textSize(50)
+  fill('white')
+  textStyle('bold')
+  text("MINE RUNNER", 220, 50 )
+  
+  
+  //TIMER
+if (timerValue >= 0) {
+    text("" + timerValue, 40, 575);
+  }
+  if (timerValue >= 9) {
+    text('' + timerValue, 40, 575);
+  }
+ 
+  
+
+  // START 
+  if(mouseX > 0 && mouseX < 120 && mouseY > 300 && mouseY < 330) {
+    ready = 1;
+    endMsg = "";
+    timerValue = 0;
+    
+  }
+ 
+if(ready == 1) {
+    strokeWeight(2);
+    stroke('green');
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
+ 
+  
+  //LOSE ON RECTANGLES
+  
+  //rect(150, 160, 100,300)
+  if(mouseX > 150 && mouseX < 250 && mouseY > 160 && mouseY < 460) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  // rect(0,0, 800,90)
+  if(mouseX > 0 && mouseX < 800 && mouseY > 0 && mouseY < 90) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //rect(0,530,800, 70)
+  if(mouseX > 0 && mouseX < 800 && mouseY > 530 && mouseY < 600) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //rect(240,300, 100, 30)
+  if(mouseX > 240 && mouseX < 340 && mouseY > 300 && mouseY < 330) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //rect(370, 300, 100, 30)
+  if(mouseX > 370 && mouseX < 470 && mouseY > 300 && mouseY < 330) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+ //rect(500, 300, 100, 30)
+  if(mouseX > 500 && mouseX < 600 && mouseY > 300 && mouseY < 330) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //rect(630, 300, 80, 30)
+  if(mouseX > 630 && mouseX < 710 && mouseY > 300 && mouseY < 330) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //rect(730, 80, 70,220 )
+  if(mouseX > 730 && mouseX < 800 && mouseY > 80 && mouseY < 300) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //rect(730, 330, 70, 220)
+  if(mouseX > 730 && mouseX < 800 && mouseY > 330 && mouseY < 550) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  
+  //LOSE ON ELLIPSES
+  
+  //ellipse(20,450, 50,50)
+  if(dist(20,450, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(90,420, 50,50)
+  if(dist(90,420, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(140,360, 50,50)
+  if(dist(140,360, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(30,380, 50,50)
+  if(dist(30,380, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(90,490, 50,50)
+  if(dist(90,490, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(170,460, 50,50)
+  if(dist(170,460, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(170,540, 50,50)
+  if(dist(170,540, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  
+  //ellipse(20,250, 50,50)
+  if(dist(20,250, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+ //ellipse(70,190, 50,50)
+  if(dist(70,190, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(130,240, 50,50)
+  if(dist(130,240, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(145,160, 50,50)
+  if(dist(145,160, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(110,100, 50,50)
+  if(dist(110,100, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(20,100, 50,50)
+  if(dist(20,100, mouseX,mouseY) < 25) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  
+   //ellipse(450,110, 80,80)
+  if(dist(450,110, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+     //ellipse(350,140, 80,80)
+   if(dist(350,140, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+     //ellipse(250,180, 80,80)
+   if(dist(250,180, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+     //ellipse(220,90, 80,80)
+   if(dist(220,90, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+
+    //ellipse(520,250, 80,80)
+   if(dist(520,250, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+     //ellipse(380,250, 80,80)
+   if(dist(380,250, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+     //ellipse(265,280, 80,80)
+    if(dist(265,280, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+    //ellipse(650,110, 180,180)
+   if(dist(650,110, mouseX,mouseY) < 90) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+     //ellipse(650,250, 80,80)
+   if(dist(650,250, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  
+  //ellipse(450,380, 80,80)
+   if(dist(450,380, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(255,420, 80,80)
+   if(dist(255,420, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+ //ellipse(300,520, 80,80)
+   if(dist(300,520, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+ // ellipse(360,440, 80,80)
+   if(dist(360,440, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(600,400, 80,80)
+   if(dist(600,400, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(480,470, 80,80)
+   if(dist(480,470, mouseX,mouseY) < 40) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  //ellipse(700,500, 180,180)
+   if(dist(700,500, mouseX,mouseY) < 90) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  
+ 
+  // WIN AT THE END
+  if(ready == 1 && mouseX > 730 && mouseX < 800 && mouseY > 300 && mouseY < 330) {
+      endMsg = "You Win!";
+    	c = 'green';
+       timerValue = 0;
+    }
+  
+  // GOOD LUCK
+  if(ready == -1) {
+    c = 'green';
+    endMsg = "Good Luck!";
+  }
+  	textSize(100);
+    fill(c);
+    text(endMsg, 150, height/2);
+  
+  // LOSE OUTSIDE
+  if(mouseX > width || mouseX < 0 || mouseY > height || mouseY < 2) {
+  	ready = 0;
+  	endMsg = "You Lose!";
+    c = 'red'
+  }
+  if(mouseX == 0 && mouseY == 0)
+    ready = -1;
+
+ 
+ 
+function mainMenu()
+{
+  window.open('https://editor.p5js.org/zirvin1/sketches/ziQXiQV-5')
+
+}
+
+  
+}
